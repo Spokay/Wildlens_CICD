@@ -3,18 +3,18 @@ services:
     image: mariadb:latest
     container_name: mariadb
     env_file:
-      - .env.db
+      - ./db/.env.db
     environment:
-      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
     restart: always
     volumes:
       - mariadb_data:/var/lib/mysql
-      - ./initfile.sql:/docker-entrypoint-initdb.d/initfile.sql
+      - ./db/initfile.sql:/docker-entrypoint-initdb.d/initfile.sql
     networks:
-      - wildlens_network
+      - wildlens_db
     healthcheck:
       test: [ "CMD", "mariadb-admin", "ping", "-h", "127.0.0.1" ]
-      interval: 10s
+      interval: 25s
       retries: 10
       start_period: 30s
 
@@ -29,12 +29,53 @@ services:
       db:
         condition: service_healthy
     networks:
-      - wildlens_network
+      - wildlens_backend
+      - wildlens_db
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - "9090:9090"
+    restart: unless-stopped
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prom_data:/prometheus
+    networks:
+      - wildlens_backend
+      - wildlens_visualization
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    env_file:
+      - ./grafana/.env.grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GF_SECURITY_ADMIN_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASSWORD}
+    volumes:
+      - ./grafana:/etc/grafana/provisioning/datasources
+
+    networks:
+      - wildlens_visualization
+
 
 networks:
-  wildlens_network:
+  wildlens_backend:
+    driver: bridge
+  wildlens_db:
+    driver: bridge
+  wildlens_visualization:
     driver: bridge
 
 volumes:
   mariadb_data:
+    driver: local
+
+  prom_data:
     driver: local
