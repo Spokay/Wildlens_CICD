@@ -3,9 +3,7 @@ services:
     image: mariadb:latest
     container_name: mariadb
     env_file:
-      - ./db/.env.db
-    environment:
-      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - .env.db
     restart: always
     volumes:
       - mariadb_data:/var/lib/mysql
@@ -22,7 +20,7 @@ services:
     image: wildlens-backend:latest
     container_name: wildlens_backend
     env_file:
-      - .env
+      - .env.backend
     ports:
       - "8001:8001"
     depends_on:
@@ -54,12 +52,10 @@ services:
       - "3000:3000"
     restart: unless-stopped
     env_file:
-      - ./grafana/.env.grafana
-    environment:
-      - GF_SECURITY_ADMIN_USER=${GF_SECURITY_ADMIN_USER}
-      - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASSWORD}
+      - .env.grafana
     volumes:
       - ./grafana:/etc/grafana/provisioning/datasources
+      - grafana_data:/var/lib/grafana
 
     networks:
       - wildlens_visualization
@@ -78,4 +74,7 @@ volumes:
     driver: local
 
   prom_data:
+    driver: local
+
+  grafana_data:
     driver: local
