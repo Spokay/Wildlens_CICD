@@ -3,5 +3,5 @@
 ## Minimum `.env.db` file template to start the service :
 
 ```env
-DB_ROOT_PASSWORD=
+MARIADB_ROOT_PASSWORD=
 ```

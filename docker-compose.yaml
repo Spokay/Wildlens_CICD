@@ -41,6 +41,7 @@ services:
       - "8002:8002"
     networks:
       - wildlens_backend
+#   If you want cannot use GPU, comment the following lines
     deploy:
       resources:
         reservations:
