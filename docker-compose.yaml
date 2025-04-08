@@ -71,7 +71,7 @@ services:
     image: grafana/grafana
     container_name: grafana
     ports:
-      - "3000:3000"
+      - "3001:3001"
     restart: unless-stopped
     env_file:
       - .env.grafana
