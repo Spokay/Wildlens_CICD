@@ -1,11 +1,17 @@
-# This repository serves as the configuration storage for the Wildlens CI / CD components. 
+# This repository serves as the configuration storage for the Wildlens CI / CD components.
 
 ## Services and Components managed by this repository
-- [Wildlens Backend API](https://github.com/Spokay/Wildlens_Backend)
-- [Wildlens Prediction API](https://github.com/Spokay/Wildlens_Prediction_API)
+- [Wildlens Backend API](https://github.com/Spokay/Wildlens_Backend) **(The image of this service is located in a private registry, authentication is necessary)**
+- [Wildlens Prediction API](https://github.com/Spokay/Wildlens_Prediction_API) **(The image of this service is located in a private registry, authentication is necessary)**
 - Database
 - Prometeus Server
 - Grafana Instance
+
+The docker Registry to pull the private images is located at this domain : `registry.spokayhub.top`
+To authenticate beforehand use the following command:
+```bash
+docker login registry.spokayhub.top
+```
 
 
 **The `docker-compose.yml` file is the main file that is used to deploy all service at once if necessary.**
