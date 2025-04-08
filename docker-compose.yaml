@@ -17,7 +17,7 @@ services:
       start_period: 30s
 
   wildlens_backend:
-    image: wildlens-backend:latest
+    image: registry.spokayhub.top/wildlens-backend:latest
     container_name: wildlens_backend
     env_file:
       - .env.backend
@@ -33,7 +33,7 @@ services:
       - wildlens_db
 
   wildlens_prediction:
-    image: wildlens-prediction:latest
+    image: registry.spokayhub.top/wildlens-prediction:latest
     container_name: wildlens_prediction
     env_file:
       - .env.prediction
@@ -42,7 +42,7 @@ services:
     networks:
       - wildlens_backend
     volumes:
-      - wildlens_prediction_data:/app/prediction_models
+      - ./wildlens_prediction/prediction_models:/app/prediction_models
 #   If you want cannot use GPU, comment the following lines
     deploy:
       resources:
