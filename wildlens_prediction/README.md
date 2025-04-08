@@ -2,9 +2,12 @@
 
 ## Minimum `.env.prediction` file template to start the service :
 
-TODO: Add the minimum .env file template for the prediction api
+TODO: Add the minimum .env.prediction file template for the prediction api
 ```env
-
+WILDLENS_PREDICTION_API_PORT=
+WILDLENS_PREDICTION_API_KEY=
+WILDLENS_FOOTPRINT_MULTICLASS_CLASSIFIER_MODEL_PATH=
+WILDLENS_FOOTPRINT_BINARY_CLASSIFIER_MODEL_PATH=
 ```
 
 
@@ -33,7 +36,8 @@ sudo systemctl restart docker
 ```
 
 3. Test the installation:
+Replace `<CUDA_VERSION>` with the version of CUDA you have installed.
 ```bash
 
-docker run --rm --gpus all nvidia/cuda:12.2.0-base nvidia-smi
+docker run --rm --gpus all nvidia/cuda:<CUDA_VERSION>-base nvidia-smi
 ```
