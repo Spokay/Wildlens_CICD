@@ -22,7 +22,7 @@ services:
     env_file:
       - .env.backend
     ports:
-      - "8001:8001"
+      - "8002:8002"
     depends_on:
       db:
         condition: service_healthy
