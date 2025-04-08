@@ -38,7 +38,7 @@ services:
     env_file:
       - .env.prediction
     ports:
-      - "5001:5001"
+      - "5002:5002"
     networks:
       - wildlens_backend
     volumes:
