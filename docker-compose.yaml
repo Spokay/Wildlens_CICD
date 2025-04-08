@@ -38,9 +38,11 @@ services:
     env_file:
       - .env.prediction
     ports:
-      - "8002:8002"
+      - "5001:5001"
     networks:
       - wildlens_backend
+    volumes:
+      - wildlens_prediction_data:/app/prediction_models
 #   If you want cannot use GPU, comment the following lines
     deploy:
       resources:
@@ -97,4 +99,7 @@ volumes:
     driver: local
 
   grafana_data:
+    driver: local
+
+  prediction_models:
     driver: local
