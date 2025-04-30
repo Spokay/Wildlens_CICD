@@ -8,50 +8,29 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
       - ./db/initfile.sql:/docker-entrypoint-initdb.d/initfile.sql
-    networks:
-      - wildlens_db
-    healthcheck:
-      test: [ "CMD", "mariadb-admin", "ping", "-h", "127.0.0.1" ]
-      interval: 25s
-      retries: 10
-      start_period: 30s
-
-  wildlens_backend:
-    image: registry.spokayhub.top/wildlens-backend:latest
-    container_name: wildlens_backend
-    env_file:
-      - .env.backend
     ports:
-      - "8002:8002"
-    depends_on:
-      db:
-        condition: service_healthy
-      wildlens_prediction:
-        condition: service_started
-    networks:
-      - wildlens_backend
-      - wildlens_db
+      - "3306:3306"
 
-  wildlens_prediction:
-    image: registry.spokayhub.top/wildlens-prediction:latest
-    container_name: wildlens_prediction
-    env_file:
-      - .env.prediction
-    ports:
-      - "5002:5002"
-    networks:
-      - wildlens_backend
-    volumes:
-      - ./wildlens_prediction/prediction_models:/app/prediction_models
-#   If you want cannot use GPU, comment the following lines
-    runtime: nvidia
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+#  wildlens_backend:
+#    image: wildlens-backend:latest
+#    container_name: wildlens_backend
+#    env_file:
+#      - .env.backend
+#    ports:
+#      - "8002:8002"
+#    networks:
+#      - wildlens_backend
+#      - wildlens_db
+#
+#  wildlens_prediction:
+#    image: wildlens-prediction:latest
+#    container_name: wildlens_prediction
+#    env_file:
+#      - .env.prediction
+#    ports:
+#      - "5002:5002"
+#    volumes:
+#      - ./wildlens_prediction/prediction_models:/app/prediction_models
 
   prometheus:
     image: prom/prometheus:latest

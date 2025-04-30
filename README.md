@@ -22,3 +22,8 @@ docker login registry.spokayhub.top
 2. Add the required `.env.<service>` files to the root directory of the repository (See in the README.md of each service for the required `.env` file)
 3. Run `docker-compose up -d` to deploy all services at once
 4. Run `docker-compose down` to stop all services
+
+## For local dev usage you can use the specific docker-compose file for local purpose
+```bash
+docker-compose -f docker-compose.local.yml up -d
+```
