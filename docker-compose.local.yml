@@ -9,7 +9,7 @@ services:
       - mariadb_data:/var/lib/mysql
       - ./db/initfile.sql:/docker-entrypoint-initdb.d/initfile.sql
     ports:
-      - "3306:3306"
+      - "3307:3306"
 
 #  wildlens_backend:
 #    image: wildlens-backend:latest
