@@ -4,7 +4,6 @@ services:
     container_name: mariadb
     env_file:
       - .env.db
-    restart: always
     volumes:
       - mariadb_data:/var/lib/mysql
       - ./db/initfile.sql:/docker-entrypoint-initdb.d/initfile.sql
