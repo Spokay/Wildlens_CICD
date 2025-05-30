@@ -41,7 +41,6 @@ services:
       - wildlens_backend
     volumes:
       - ./wildlens_prediction/prediction_models:/app/prediction_models
-#   If you want cannot use GPU, comment the following lines
     runtime: nvidia
     deploy:
       resources:
@@ -49,7 +48,8 @@ services:
           devices:
             - driver: nvidia
               count: all
-              capabilities: [gpu]
+              capabilities: [compute, utility]
+
 
   prometheus:
     image: prom/prometheus:latest
