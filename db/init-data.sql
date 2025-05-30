@@ -6,17 +6,17 @@ INSERT INTO role (id, name) VALUES (1, 'ADMIN'),
 INSERT INTO family (id, name) VALUES (1, 'Mammiferes');
 
 -- Insert habitats
-INSERT INTO habitat (id, name, habitat_photo) VALUES (1, 'Aquatiques', ''),
-                                                     (2, 'Ouverts / herbacés', ''),
-                                                     (3, 'Boisés', ''),
-                                                     (4, 'Semi-ouverts / arbustifs', ''),
-                                                     (5, 'Arides', ''),
-                                                     (6, 'Froids', ''),
-                                                     (7, 'Montagneux', '');
+INSERT INTO habitat (id, name, habitat_photo) VALUES
+    (1, 'Aquatiques', 'https://cdn.pytom-hub.com/habitats/aqua.png'),
+    (2, 'Ouverts / herbacés', 'https://cdn.pytom-hub.com/habitats/herbaces.png'),
+    (3, 'Boisés', 'https://cdn.pytom-hub.com/habitats/foret.png'),
+    (4, 'Semi-ouverts / arbustifs', 'https://cdn.pytom-hub.com/habitats/arbustif.png'),
+    (5, 'Arides', 'https://cdn.pytom-hub.com/habitats/aride.png'),
+    (6, 'Froids', 'https://cdn.pytom-hub.com/habitats/froid.png'),
+    (7, 'Montagneux', 'https://cdn.pytom-hub.com/habitats/montagne.png');
 
 -- Insert species
-INSERT INTO specie (id, name, latin_name, description, size, region, fun_fact, specie_exemple_photo, footprint_exemple_photo, family_id)
-VALUES
+INSERT INTO specie (id, name, latin_name, description, size, region, fun_fact, specie_exemple_photo, footprint_exemple_photo, family_id) VALUES
     (1, "Castor", "Castor canadensis", "Le castor d'Europe, appelé également le castor commun ou le castor d'Eurasie, est un mammifère rongeur aquatique de la famille des castoridés.", "100 à 135 cm queue comprise", "Europe du nord et Eurasie", "À l'exception des humains, le castor est l'un des seuls mammifères qui façonnent son environnement.", "", "", 1),
 
     (2, "Chat", "Felis silvestris", "Le Chat sauvage4 (Felis silvestris) est une espèce de félins du genre Felis présent dans divers types d'habitats. Son aire de répartition couvre l'Europe, l'Asie occidentale et l'Afrique.", "46 à 51 cm sans la queue", "Amérique, Europe, Asie occidentale et Afrique", "Un chat ne peut pas voir directement sous son nez !", "", "", 1),
@@ -44,4 +44,19 @@ VALUES
     (13, "Renard", "Vulpes vulpes", "Le renard roux, appelé également le renard commun ou le renard rouge, est un mammifère carnivore de la famille des canidés.", "90 à 120 cm", "Europe, Afrique du Nord, Moyen-Orient, Asie, Australie, Amérique du Nord", "Les renards utilisent le champ magnétique de la Terre comme un \"radar\" pour chasser.", "", "", 1);
 
 
--- Insert into badge
+-- Insert badges
+INSERT INTO badge (id, name, description, badge_image) VALUES
+    (1,"Début de l''aventure", "Il faut bien commencer quelque part !", ""),
+    (2,"Explorateur de la nature", "Décerné pour avoir identifié 5 espèces différentes", ""),
+    (3,"Véteran de la nature", "Décerné pour avoir identifié 10 espèces différentes", ""),
+    (4,"Amateur de chat", "Décerné pour avoir identifié 5 chats", ""),
+    (5,"Expert en chat", "Décerné pour avoir identifié 10 chats", ""),
+    (5,"Expert en chat", "Décerné pour avoir identifié 10 chats", "");
+
+-- Insert badge criterias
+INSERT INTO badge_criteria (badge_id, criteria) VALUES
+    (1, "{'type': 'identification_count_by_specie', 'required': 0}"),
+    (2, "{'type': 'identification_count_by_specie', 'required': 5}"),
+    (3, "{'type': 'identification_count_by_specie', 'required': 10}"),
+    (4, "{'type': 'identification_count_by_specie', 'required': 5, 'specie': 2}"),
+    (5, "{'type': 'identification_count_by_specie', 'required': 10, 'specie': 2}");
