@@ -48,7 +48,7 @@ services:
           devices:
             - driver: nvidia
               count: all
-              capabilities: [compute, utility]
+              capabilities: [gpu, compute, utility]
 
 
   prometheus:
