@@ -46,17 +46,31 @@ INSERT INTO specie (id, name, latin_name, description, size, region, fun_fact, s
 
 -- Insert badges
 INSERT INTO badge (id, name, description, badge_image) VALUES
-    (1,"Début de l''aventure", "Il faut bien commencer quelque part !", ""),
-    (2,"Explorateur de la nature", "Décerné pour avoir identifié 5 espèces différentes", ""),
-    (3,"Véteran de la nature", "Décerné pour avoir identifié 10 espèces différentes", ""),
-    (4,"Amateur de chat", "Décerné pour avoir identifié 5 chats", ""),
-    (5,"Expert en chat", "Décerné pour avoir identifié 10 chats", ""),
-    (5,"Expert en chat", "Décerné pour avoir identifié 10 chats", "");
+    (1,"Début de l''aventure", "Il faut bien commencer quelque part !", "https://cdn.pytom-hub.com/badges/premiere_connexion.png"),
+    (2,"La découverte d'un nouveau monde", "Décerné pour avoir identifié son premier animal", "https://cdn.pytom-hub.com/badges/avoir_trouve_son_premier_animal.png"),
+    (3,"Explorateur de la nature", "Décerné pour avoir identifié 10 animaux", "https://cdn.pytom-hub.com/badges/avoir_trouve_10_animaux.png"),
+    (4,"Véteran de la nature", "Décerné pour avoir identifié 20 animaux", "https://cdn.pytom-hub.com/badges/avoir_trouve_20_animaux.png"),
+    (5, "Expert en baignade", "Décerné pour avoir identifié tous les animaux des milieux aquatiques.", "https://cdn.pytom-hub.com/badges/tous_animaux_milieux_aquatiques.png"),
+    (6, "Expert en herbacés", "Décerné pour avoir identifié tous les animaux des milieux herbacés.", "https://cdn.pytom-hub.com/badges/tous_animaux_milieux_ouverts.png"),
+    (7, "Expert en forêt", "Décerné pour avoir identifié tous les animaux des milieux boisés.", "https://cdn.pytom-hub.com/badges/tous_animaux_milieux_boises.png"),
+    (8, "Expert en arbuste","Décerné pour avoir identifié tous les animaux des milieux arbustifs.", "https://cdn.pytom-hub.com/badges/tous_animaux_milieux_arbustifs.png"),
+    (9, "Expert en désert", "Décerné pour avoir identifié tous les animaux des milieux arides.", "https://cdn.pytom-hub.com/badges/tous_animaux_milieux_arides.png"),
+    (10, "Expert du froid", "Décerné pour avoir identifié tous les animaux des milieux froids.", "https://cdn.pytom-hub.com/badges/tous_animaux_milieux_froids.png"),
+    (11, "Expert en montagne", "Décerné pour avoir identifié tous les animaux des milieux montagneux.", "https://cdn.pytom-hub.com/badges/tous_animaux_milieux_montagneux.png"),
+    (12, "OG de la nature", "Décerné pour avoir identifié tous les animaux de l’application.", "https://cdn.pytom-hub.com/badges/avoir_trouve_tous_les_animaux.png")
+
 
 -- Insert badge criterias
 INSERT INTO badge_criteria (badge_id, criteria) VALUES
     (1, "{'type': 'identification_count_by_specie', 'required': 0}"),
-    (2, "{'type': 'identification_count_by_specie', 'required': 5}"),
+    (2, "{'type': 'identification_count_by_specie', 'required': 1}"),
     (3, "{'type': 'identification_count_by_specie', 'required': 10}"),
-    (4, "{'type': 'identification_count_by_specie', 'required': 5, 'specie': 2}"),
-    (5, "{'type': 'identification_count_by_specie', 'required': 10, 'specie': 2}");
+    (4, "{'type': 'identification_count_by_specie', 'required': 20}"),
+    (5, "{'type': 'all_species_identified_by_habitat', 'habitat': 1}"),
+    (6, "{'type': 'all_species_identified_by_habitat', 'habitat': 2}"),
+    (7, "{'type': 'all_species_identified_by_habitat', 'habitat': 3}"),
+    (8, "{'type': 'all_species_identified_by_habitat', 'habitat': 4}"),
+    (9, "{'type': 'all_species_identified_by_habitat', 'habitat': 5}"),
+    (10, "{'type': 'all_species_identified_by_habitat', 'habitat': 6}"),
+    (11, "{'type': 'all_species_identified_by_habitat', 'habitat': 7}"),
+    (12, "{'type': 'all_species_identified'}");
