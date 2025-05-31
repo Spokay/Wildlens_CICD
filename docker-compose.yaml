@@ -64,7 +64,7 @@ services:
       - prom_data:/prometheus
     networks:
       - wildlens_backend
-      - wildlens_visualization
+
 
 
 networks:
@@ -73,7 +73,8 @@ networks:
   wildlens_db:
     driver: bridge
   wildlens_visualization:
-    driver: bridge
+    external: true
+    name: wildlens_visualization
 
 volumes:
   mariadb_data:
