@@ -64,6 +64,7 @@ services:
       - prom_data:/prometheus
     networks:
       - wildlens_backend
+      - wildlens_visualization
 
 
 
