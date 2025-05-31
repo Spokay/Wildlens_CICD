@@ -66,21 +66,6 @@ services:
       - wildlens_backend
       - wildlens_visualization
 
-  grafana:
-    image: grafana/grafana
-    container_name: grafana
-    ports:
-      - "3001:3001"
-    restart: unless-stopped
-    env_file:
-      - .env.grafana
-    volumes:
-      - ./grafana:/etc/grafana/provisioning/datasources
-      - grafana_data:/var/lib/grafana
-
-    networks:
-      - wildlens_visualization
-
 
 networks:
   wildlens_backend:
