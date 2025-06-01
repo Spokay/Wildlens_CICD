@@ -43,6 +43,46 @@ INSERT INTO specie (id, name, latin_name, description, size, region, fun_fact, s
 
     (13, "Renard", "Vulpes vulpes", "Le renard roux, appelé également le renard commun ou le renard rouge, est un mammifère carnivore de la famille des canidés.", "90 à 120 cm", "Europe, Afrique du Nord, Moyen-Orient, Asie, Australie, Amérique du Nord", "Les renards utilisent le champ magnétique de la Terre comme un \"radar\" pour chasser.", "https://cdn.pytom-hub.com/species/photo/renard.jpg", "https://cdn.pytom-hub.com/species/footprint/renard_footprint.jpg", 1);
 
+-- Insert specie habitats
+INSERT INTO speciehabitat (specie_id, habitat_id) VALUES
+      (1, 1),  -- Castor - Aquatiques
+      (2, 2),  -- Chat - Ouverts/herbacés
+      (2, 3),  -- Chat - Boisés
+      (2, 4),  -- Chat - Semi-ouverts/arbustifs
+      (3, 2),  -- Chien - Ouverts/herbacés
+      (3, 3),  -- Chien - Boisés
+      (3, 4),  -- Chien - Semi-ouverts/arbustifs
+      (4, 2),  -- Coyote - Ouverts/herbacés
+      (4, 3),  -- Coyote - Boisés
+      (4, 5),  -- Coyote - Arides
+      (5, 3),  -- Ecureuil - Boisés
+      (6, 2),  -- Lapin - Ouverts/herbacés
+      (6, 3),  -- Lapin - Boisés
+      (6, 4),  -- Lapin - Semi-ouverts/arbustifs
+      (7, 2),  -- Loup - Ouverts/herbacés
+      (7, 3),  -- Loup - Boisés
+      (7, 7),  -- Loup - Montagneux
+      (8, 2),  -- Lynx - Ouverts/herbacés
+      (8, 3),  -- Lynx - Boisés
+      (8, 6),  -- Lynx - Froids
+      (8, 7),  -- Lynx - Montagneux
+      (9, 1),  -- Ours - Aquatiques
+      (9, 3),  -- Ours - Boisés
+      (9, 7),  -- Ours - Montagneux
+      (10, 1), -- Puma - Aquatiques
+      (10, 2), -- Puma - Ouverts/herbacés
+      (10, 3), -- Puma - Boisés
+      (11, 1), -- Rat - Aquatiques
+      (11, 2), -- Rat - Ouverts/herbacés
+      (11, 3), -- Rat - Boisés
+      (11, 4), -- Rat - Semi-ouverts/arbustifs
+      (11, 5), -- Rat - Arides
+      (12, 1), -- Raton laveur - Aquatiques
+      (12, 3), -- Raton laveur - Boisés
+      (13, 2), -- Renard - Ouverts/herbacés
+      (13, 3), -- Renard - Boisés
+      (13, 6), -- Renard - Froids
+      (13, 7); -- Renard - Montagneux
 
 -- Insert badges
 INSERT INTO badge (id, name, description, badge_image) VALUES
@@ -57,7 +97,7 @@ INSERT INTO badge (id, name, description, badge_image) VALUES
     (9, "Expert en désert", "Décerné pour avoir identifié tous les animaux des milieux arides.", "https://cdn.pytom-hub.com/badges/tous_animaux_milieux_arides.png"),
     (10, "Expert du froid", "Décerné pour avoir identifié tous les animaux des milieux froids.", "https://cdn.pytom-hub.com/badges/tous_animaux_milieux_froids.png"),
     (11, "Expert en montagne", "Décerné pour avoir identifié tous les animaux des milieux montagneux.", "https://cdn.pytom-hub.com/badges/tous_animaux_milieux_montagneux.png"),
-    (12, "OG de la nature", "Décerné pour avoir identifié tous les animaux de l’application.", "https://cdn.pytom-hub.com/badges/avoir_trouve_tous_les_animaux.png")
+    (12, "OG de la nature", "Décerné pour avoir identifié tous les animaux de l’application.", "https://cdn.pytom-hub.com/badges/avoir_trouve_tous_les_animaux.png");
 
 
 -- Insert badge criterias
