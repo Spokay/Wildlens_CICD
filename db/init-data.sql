@@ -2,7 +2,7 @@
 INSERT INTO role (id, name) VALUES (1, 'ADMIN'),
                                    (2, 'USER');
 
-INSERT INTO user (id, username, email, password, role_id) VALUES (1, "admin", "admin@admin.fr", "$2y$10$7D39K5WRLDoqB5D0F4Rn.eYoKxEWp1pYlHJFKIdD31F8cMw33Stdm", 1);
+INSERT INTO user (id, username, email, password, disabled, created_at, updated_at, role_id) VALUES (1, "admin", "admin@admin.fr", "$2y$10$7D39K5WRLDoqB5D0F4Rn.eYoKxEWp1pYlHJFKIdD31F8cMw33Stdm", false, NOW(), NOW(), 1);
 
 -- Insert the families
 INSERT INTO family (id, name) VALUES (1, 'Mammiferes');
