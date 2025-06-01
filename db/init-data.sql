@@ -101,16 +101,16 @@ INSERT INTO badge (id, name, description, badge_image) VALUES
 
 
 -- Insert badge criterias
-INSERT INTO badge_criteria (badge_id, criteria) VALUES
-    (1, "{'type': 'identification_count_by_specie', 'required': 0}"),
-    (2, "{'type': 'identification_count_by_specie', 'required': 1}"),
-    (3, "{'type': 'identification_count_by_specie', 'required': 10}"),
-    (4, "{'type': 'identification_count_by_specie', 'required': 20}"),
-    (5, "{'type': 'all_species_identified_by_habitat', 'habitat': 1}"),
-    (6, "{'type': 'all_species_identified_by_habitat', 'habitat': 2}"),
-    (7, "{'type': 'all_species_identified_by_habitat', 'habitat': 3}"),
-    (8, "{'type': 'all_species_identified_by_habitat', 'habitat': 4}"),
-    (9, "{'type': 'all_species_identified_by_habitat', 'habitat': 5}"),
-    (10, "{'type': 'all_species_identified_by_habitat', 'habitat': 6}"),
-    (11, "{'type': 'all_species_identified_by_habitat', 'habitat': 7}"),
-    (12, "{'type': 'all_species_identified'}");
+INSERT INTO badgecriteria (badge_id, criteria) VALUES
+   (1, '{"type": "identification_count_by_specie", "required": 0}'),
+   (2, '{"type": "identification_count_by_specie", "required": 1}'),
+   (3, '{"type": "identification_count_by_specie", "required": 10}'),
+   (4, '{"type": "identification_count_by_specie", "required": 20}'),
+   (5, '{"type": "all_species_identified_by_habitat", "habitat": 1}'),
+   (6, '{"type": "all_species_identified_by_habitat", "habitat": 2}'),
+   (7, '{"type": "all_species_identified_by_habitat", "habitat": 3}'),
+   (8, '{"type": "all_species_identified_by_habitat", "habitat": 4}'),
+   (9, '{"type": "all_species_identified_by_habitat", "habitat": 5}'),
+   (10, '{"type": "all_species_identified_by_habitat", "habitat": 6}'),
+   (11, '{"type": "all_species_identified_by_habitat", "habitat": 7}'),
+   (12, '{"type": "all_species_identified"}');
