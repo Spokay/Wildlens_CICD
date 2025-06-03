@@ -10,6 +10,7 @@ services:
       - ./db/initfile.sql:/docker-entrypoint-initdb.d/initfile.sql
     networks:
       - wildlens_db
+      - wildlens_visualization
     healthcheck:
       test: [ "CMD", "mariadb-admin", "ping", "-h", "127.0.0.1" ]
       interval: 25s
